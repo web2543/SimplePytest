@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        dockerfile{
+            filename 'dockerfile'
+        }
+    }
+    stages{
+        stage('Test') {
+            steps{
+            echo 'Start Testing'
+            sh '''
+            pytest test.py -v
+            '''
+            }
+        }
+    }
+}
